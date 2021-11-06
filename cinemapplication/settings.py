@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-lqct79rt2v+bh%!j82kro-is+ti3+oylu$ol(b_0nj4jjvboci
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["165.232.139.147"]
 
 
 # Application definition
@@ -77,9 +77,9 @@ WSGI_APPLICATION = 'cinemapplication.wsgi.application'
 DATABASES = {
    'default': {
       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-      'NAME': 'cinedb',
+      'NAME': 'sistemafinal',
       'USER': 'postgres',
-      'PASSWORD': 'Thewise14*',
+      'PASSWORD': 'postgres14',
       'HOST': 'localhost',
       'PORT': '5432',
    }
