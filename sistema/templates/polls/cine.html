@@ -1,0 +1,72 @@
+{% load static %}
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Cine</title>
+  <!-- BOOTSTRAP 4 -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css" />
+  <!-- FONTS -->
+  <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet" />
+
+  <!-- MAIN CSS -->
+  <!--    <link rel="stylesheet" href="{% static 'index.css' %}" />
+ -->
+</head>
+
+<body style="background: rgb(233, 124, 142);">
+  <main class="container p-4">
+    <h1 class="display-4 text-center title mt-4">Cine</h1>
+    <div class="row mt-4">
+      <div class="col-md-4 text-center">
+        <div class="card" style="margin-left: 55px;">
+          <div class="card-header">
+            <h4>Agregar Cine</h4>
+          </div>
+          <div class="card-body" style="background-color: rgba(151, 187, 241, 0.884);">
+            <form action="/addCine" method="POST">
+              {% csrf_token %} {{ form.as_p }}
+
+              <button type="submit" class="btn btn-primary btn-block">
+                Save
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-8"">
+        <div class="row" style=" width:800px;">
+          {% for cine in cines %}
+          <div class="col-md-4" key="{{cine.id}}" style="background-color: black; height:450px">
+            <div class="card mt-4" style="width:max-content;">
+              <div class="card-title text-center mt-3">
+                <h5>{{cine.nombreCine}}</h5>
+              </div>
+              <div class="card-body" style="background-color: rgb(214, 214, 214);"><span
+                  style="color: black ; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Direccion</span>
+                  <br>{{cine.direccionCine}}
+              </div>
+              <div class="card-body" style="background-color: rgb(214, 214, 214);"><span
+                style="color: black ; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Telefono</span>
+                <br>{{cine.telefonoCine}}</div>
+              <div class="card-body" style="background-color: rgb(214, 214, 214);"><span
+                style="color: black ; font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif">Email</span>
+                <br>{{cine.emailCine}}</div>
+
+              <div class="card-footer text-center">
+                <span><a href="{% url 'updateCine' cine.id %}" class="btn btn-muted">Editar</a></span>
+                <span><a href="{% url 'deleteCine' cine.id %}" class="btn btn-info">Eliminar</a></span>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,13 @@
+body {
+ 
+  color: #000;
+}
+
+.title {
+  font-family: "Lobster";
+}
+
+.done {
+  text-decoration: line-through;
+  color: #cfcfcf;
+}
