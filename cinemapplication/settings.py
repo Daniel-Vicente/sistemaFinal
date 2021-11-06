@@ -80,7 +80,7 @@ DATABASES = {
       'NAME': 'sistemafinal',
       'USER': 'postgres',
       'PASSWORD': 'postgres14',
-      'HOST': 'localhost',
+      'HOST': 'database-1.cnsbzazjyrzq.us-east-2.rds.amazonaws.com',
       'PORT': '5432',
    }
 }
